@@ -41,7 +41,10 @@ function structureComment(comment){ // TODO which party is talking?
     var match = myRegexp.exec(comment);
 
     if(match){
-        return {fullName:match[2], party:match[3], text:match[4]}
+
+        // TODO [Gegenruf des Abg. Karsten Hilse,	AfD]:	Für Sie schon!
+        // TODO [Jürgen Braun,	AfD]:	Alles so, wie es nicht im Grundgesetz oder in der Geschäftsordnung vorgesehen ist! Alles in Kungelrunden! Das hätten Sie wohl gern! – Gegenruf des Abg. Michael Grosse-Brömer [CDU/CSU]: Da reden ja die Richtigen über Kungelrunden!
+        return {fullname:match[2], party:match[3], text:match[4]}
     }
 
     return null
@@ -83,6 +86,6 @@ exports.comments = function(callback){
             allComments += ("["+comment.fullName+",\t "+ comment.party+"]:\t " + comment.text + "<br>")
         })
 
-        callback(null, allComments)
+        callback(null, {data:structuredComments})
     });
 };
