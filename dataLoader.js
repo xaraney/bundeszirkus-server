@@ -29,11 +29,8 @@ function findElements(element, xml) {
  * @param {*} comment the comment to categorize as a string 
  * @returns []
  */
-function structureComment2(comment){
-
-
+function structureComment(comment){
     let result = []
-
     let parts = comment.split("–")
 
     parts.forEach(function(part){
@@ -96,7 +93,7 @@ exports.comments = function(callback){
             var comments = findElements("kommentar", document);
 
             comments.forEach(function(comment) {
-                let resultArr = structureComment2(comment)
+                let resultArr = structureComment(comment)
                 if(resultArr){
                     resultArr.forEach(function(result){
                         structuredComments.push(result)
