@@ -14,10 +14,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    <!-- 
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
     <!-- data table -->
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css"/>
     <script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     
     
@@ -31,8 +30,9 @@
     <script>
       $(document).ready(function() {
         $('#allCommentsTable').DataTable({
-            "ajax": 'comments',
-            "lengthChange": false,
+            sScrollX: "100%",
+            ajax: 'comments',
+           
             columns: [
                 { data: 'fullname' },
                 { data: 'party' },
@@ -79,7 +79,7 @@
         </div>
 
         <div class="jumbotron">
-          <table id="allCommentsTable" class="table table-bordered" style="width:100%">
+          <table id="allCommentsTable" class="display" style="width:100%">>
             <thead>
               <tr>
                 <th>Name</th>
@@ -87,13 +87,6 @@
                 <th>Zwischenruf</th>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <th>Name</th>
-                <th>Partei</th>
-                <th>Zwischenruf</th>
-              </tr>
-            </tfoot>
           </table>
         </div>
 
